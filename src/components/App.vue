@@ -4,6 +4,7 @@
       <ul class="nav navbar-nav">
         <li><a v-link="'home'">Home</a></li>
         <li><a v-link="'signup'">Signup</a></li>
+        <li><a v-link="'login'">Login</a></li>
       </ul>
     </div>
   </nav>
