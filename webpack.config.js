@@ -22,10 +22,19 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loaders: [
+          'babel',
+          'eslint'
+        ],
         exclude: /node_modules/
       }
     ]
+  },
+
+  vue: {
+    loaders: {
+      js: 'babel!eslint'
+    }
   },
 
   babel: {
