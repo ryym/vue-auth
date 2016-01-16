@@ -1,5 +1,6 @@
 // webpack.config.js
 
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -37,6 +38,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      API_URL: JSON.stringify('http://localhost:3001')
+    }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
       inject: 'body'

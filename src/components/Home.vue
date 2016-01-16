@@ -21,7 +21,7 @@ export default {
   methods: {
     getQuote() {
       this.$http
-        .get('http://localhost:3001/api/random-quote')
+        .get(`${API_URL}/api/random-quote`)
         .then(res => this.quote = res.data);
     }
   }
