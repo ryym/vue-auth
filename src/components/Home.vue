@@ -16,7 +16,7 @@
 
 export default {
   data() {
-    return { quote: '' }
+    return { quote: '' };
   },
   methods: {
     getQuote() {
@@ -25,6 +25,6 @@ export default {
         .then(res => this.quote = res.data);
     }
   }
-}
+};
 
 </script>
