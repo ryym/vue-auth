@@ -43,7 +43,8 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: __dirname + '/build/'
+    contentBase: __dirname + '/build/',
+    iframe: true
   },
 
   plugins: [
