@@ -44,7 +44,7 @@ export default {
   methods: {
     login() {
       const creds = Object.assign({}, this.creds);
-      auth.login(this, creds, 'home')
+      auth.login(this, creds, 'secretquote')
         .catch(() => {
           this.error = 'Invalid username or password.';
         });

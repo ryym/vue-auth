@@ -49,7 +49,7 @@ export default {
     submit() {
       this.error = this.success = '';
       const creds = Object.assign({}, this.creds);
-      auth.signup(this, creds)
+      auth.signup(this, creds, 'secretquote')
         .then(() => this.success = 'Signed up successfully.')
         .catch(res => this.error = res.data);
     }
