@@ -26,6 +26,14 @@
           </a>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li v-if="user.name">
+          <h4 class="navbar-text">
+            <i class="glyphicon glyphicon-user"></i>
+              {{ user.name }}
+          </h4>
+        </li>
+      </ul>
     </div>
   </nav>
   <div class="container">
@@ -38,11 +46,13 @@
 import auth from '../auth';
 
 const user = {
+  name: '',
   loggedIn: false
 };
 
-auth.subscribe(state => {
-  user.loggedIn = state.authenticated;
+auth.subscribe(_user => {
+  user.loggedIn = _user.authenticated;
+  user.name = _user.name;
 });
 
 export default {

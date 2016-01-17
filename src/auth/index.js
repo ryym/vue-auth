@@ -8,17 +8,20 @@ const TOKEN_KEY = 'vue-auth_id-token';
 
 export default {
   user: {
+    name: '',
     authenticated: false
   },
 
   _handlers: [],
 
-  _loggedIn() {
+  _loggedIn(name) {
+    this.user.name = name;
     this.user.authenticated = true;
     this._pushChange();
   },
 
   _loggedOut() {
+    this.user.name = '';
     this.user.authenticated = false;
     this._pushChange();
   },
@@ -36,7 +39,7 @@ export default {
       .post(SIGNUP_URL, creds)
       .then(res => {
         this._storeToken(res.data);
-        this._loggedIn();
+        this._loggedIn(creds.username);
         redirect && router.go(redirect);
       });
   },
@@ -47,7 +50,7 @@ export default {
       .post(LOGIN_URL, creds)
       .then(res => {
         this._storeToken(res.data);
-        this._loggedIn();
+        this._loggedIn(creds.username);
         redirect && router.go(redirect);
       });
   },
