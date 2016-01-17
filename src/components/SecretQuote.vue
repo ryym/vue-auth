@@ -40,6 +40,13 @@ export default {
           this.error = 'Please login to get a secret chunk.';
         });
     }
+  },
+  route: {
+    // Check the users auth status before
+    // allowing navigation to the route.
+    canActivate() {
+      return auth.isAuthenticated();
+    }
   }
 };
 

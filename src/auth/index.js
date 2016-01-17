@@ -46,5 +46,9 @@ export default {
     return {
       'Authorization': `Bearer ${token}`
     };
+  },
+
+  isAuthenticated() {
+    return this.user.authenticated;
   }
 };
