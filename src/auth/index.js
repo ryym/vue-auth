@@ -11,9 +11,21 @@ export default {
     authenticated: false
   },
 
-  _loggedIn() { this.user.authenticated = true; },
+  _handlers: [],
 
-  _loggedOut() { this.user.authenticated = false; },
+  _loggedIn() {
+    this.user.authenticated = true;
+    this._pushChange();
+  },
+
+  _loggedOut() {
+    this.user.authenticated = false;
+    this._pushChange();
+  },
+
+  _pushChange() {
+    this._handlers.forEach(handle => handle(this.user));
+  },
 
   _storeToken(data) { localStorage.setItem(TOKEN_KEY, data.id_token); },
 
@@ -61,5 +73,9 @@ export default {
   restoreUserState() {
     const jwt = this._getStoredToken();
     jwt ? this._loggedIn() : this._loggedOut();
+  },
+
+  subscribe(onChange) {
+    this._handlers.push(onChange);
   }
 };
