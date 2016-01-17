@@ -50,5 +50,11 @@ export default {
 
   isAuthenticated() {
     return this.user.authenticated;
+  },
+
+  // Restore the user state from local storage.
+  restoreUserState() {
+    const jwt = this._getStoredToken();
+    jwt ? this._loggedIn() : this._loggedOut();
   }
 };

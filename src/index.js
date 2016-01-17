@@ -8,6 +8,7 @@ import Home from './components/Home.vue';
 import Signup from './components/Signup.vue';
 import Login from './components/Login.vue';
 import SecretQuote from './components/SecretQuote.vue';
+import auth from './auth';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -33,4 +34,5 @@ router.redirect({
   '*': '/home'
 });
 
+auth.restoreUserState();
 router.start(App, 'div');
