@@ -40,6 +40,11 @@ export default {
       });
   },
 
+  logout() {
+    localStorage.removeItem(TOKEN_KEY);
+    this._loggedOut();
+  },
+
   // Return the object to be passed as a header for authenticated requests.
   getAuthHeader() {
     const token = this._getStoredToken() || '';
