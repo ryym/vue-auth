@@ -7,6 +7,7 @@ import App from './components/App.vue';
 import Home from './components/Home.vue';
 import Signup from './components/Signup.vue';
 import Login from './components/Login.vue';
+import SecretQuote from './components/SecretQuote.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -22,6 +23,9 @@ router.map({
   },
   '/login': {
     component: Login
+  },
+  '/secretquote': {
+    component: SecretQuote
   }
 });
 

@@ -5,6 +5,7 @@
         <li><a v-link="'home'">Home</a></li>
         <li><a v-link="'signup'">Signup</a></li>
         <li><a v-link="'login'">Login</a></li>
+        <li><a v-link="'secretquote'">Seqret Quote</a></li>
       </ul>
     </div>
   </nav>
