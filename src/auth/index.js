@@ -17,6 +17,8 @@ export default {
 
   _storeToken(data) { localStorage.setItem(TOKEN_KEY, data.id_token); },
 
+  _getStoredToken() { return localStorage.getItem(TOKEN_KEY); },
+
   signup(context, creds, redirect) {
     return context.$http
       .post(SIGNUP_URL, creds)
@@ -36,5 +38,13 @@ export default {
         this._loggedIn();
         redirect && router.go(redirect);
       });
+  },
+
+  // Return the object to be passed as a header for authenticated requests.
+  getAuthHeader() {
+    const token = this._getStoredToken() || '';
+    return {
+      'Authorization': `Bearer ${token}`
+    };
   }
 };
