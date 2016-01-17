@@ -29,7 +29,8 @@ module.exports = {
     "no-new-wrappers": 2,
     "no-trailing-spaces": 2,
     "no-unused-expressions": [2, {
-      "allowShortCircuit": true  // a && b(), a || b
+      "allowShortCircuit": true,  // a && b(), a || b
+      "allowTernary": true  // a ? b() : c()
     }],
     "no-var": 2,
     "quotes": [2, "single"],
